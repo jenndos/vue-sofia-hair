@@ -28,4 +28,12 @@ legacy
 *.sln
 *.sw?
 
+# Images
+*.jpg
+*.png
+
+# Video
+*.mp4
+*.mov
+
 *.tsbuildinfo
