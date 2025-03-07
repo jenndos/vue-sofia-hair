@@ -28,12 +28,6 @@ legacy
 *.sln
 *.sw?
 
-# Images
-*.jpg
-*.png
-
-# Video
-*.mp4
-*.mov
+/src/assets/images/ClientsView/clients-media/
 
 *.tsbuildinfo
