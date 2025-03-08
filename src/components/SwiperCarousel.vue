@@ -22,7 +22,6 @@
 import { register } from 'swiper/element/bundle'
 import { ref } from 'vue'
 
-// Register Swiper web components
 register()
 
 defineProps({
@@ -50,7 +49,6 @@ const breakpoints = ref({
 </script>
 
 <style scoped>
-/* Base styles */
 .swiper-carousel {
   max-width: 1100px;
   margin: 0 auto;
@@ -109,10 +107,6 @@ swiper-container::part(button-next) {
 }
 
 @media (max-width: 768px) {
-  .swiper-carousel {
-    /*margin: 0 10px 25px;*/
-  }
-
   swiper-container::part(button-prev),
   swiper-container::part(button-next) {
     display: none;
