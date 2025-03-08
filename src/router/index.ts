@@ -25,10 +25,15 @@ const router = createRouter({
       component: () => import('../views/ClientsView.vue'),
     },
     {
+      path: '/learning',
+      name: 'learning',
+      component: () => import('../views/LearningView.vue'),
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'notFound',
       component: () => import('../views/NotFoundView.vue'),
-    }
+    },
   ],
 })
 

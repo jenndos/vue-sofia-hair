@@ -6,14 +6,11 @@ import { RouterLink } from 'vue-router'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink class="router-link" to="/">Главная страница</RouterLink>
-        <RouterLink class="router-link" to="/about">Обо мне</RouterLink>
+        <RouterLink class="router-link link-main-page" to="/">Главная&nbsp;страница</RouterLink>
+        <RouterLink class="router-link link-about" to="/about">Обо&nbsp;мне</RouterLink>
         <RouterLink class="router-link" to="/prices">Цены</RouterLink>
         <RouterLink class="router-link" to="/clients">Клиенты</RouterLink>
-        <div class="contact-info">
-          <span class="address">г. Казань, ул. Кави Наджми 8, офис. 23</span>
-          <div class="phone">+7 960 087-20-86</div>
-        </div>
+        <RouterLink class="router-link" to="/learning">Обучение</RouterLink>
       </nav>
     </div>
   </header>
@@ -27,9 +24,9 @@ header {
 
 nav {
   width: 100%;
-  font-size: 15px;
+  font-size: 18px;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1.2rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,9 +38,9 @@ nav a.router-link-exact-active {
   font-weight: 500;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+/*nav a.router-link-exact-active:hover {*/
+/*  background-color: transparent;*/
+/*}*/
 
 nav a {
   display: inline-block;
@@ -66,13 +63,39 @@ nav a:first-of-type {
   white-space: nowrap;
 }
 
-@media (max-width: 707px) {
+@media (max-width: 684px) {
+  header {
+    margin-bottom: 5px;
+  }
+
   .contact-info {
     display: none;
   }
 
+  nav {
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    padding: 0;
+  }
+
+  nav a.router-link-exact-active {
+    background-color: #e4e4e4;
+  }
+
   .router-link {
-    font-size: 13px;
+    line-height: 1.1;
+    font-size: 18px;
+    /*background-color: #dcdcdc;*/
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 568px) {
+  .router-link {
+    font-size: 15px;
+    padding: 10px 8px;
+    border: none;
   }
 }
 </style>

@@ -28,6 +28,6 @@ legacy
 *.sln
 *.sw?
 
-/src/assets/images/ClientsView/clients-media/
+/src/assets/media/ClientsView/clients-media/
 
 *.tsbuildinfo

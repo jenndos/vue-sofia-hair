@@ -110,7 +110,7 @@ swiper-container::part(button-next) {
 
 @media (max-width: 768px) {
   .swiper-carousel {
-    margin: 0 10px 25px;
+    /*margin: 0 10px 25px;*/
   }
 
   swiper-container::part(button-prev),

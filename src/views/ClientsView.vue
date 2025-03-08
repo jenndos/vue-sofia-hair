@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Мои клиенты</h1>
+    <h1 class="header-my-clients">Мои клиенты</h1>
     <div class="media-grid">
       <div
         v-for="(item, index) in mediaItems"
@@ -56,7 +56,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
 
-// Define an interface for a media item.
 interface MediaItem {
   id: number
   type: 'image' | 'video'
@@ -64,63 +63,57 @@ interface MediaItem {
   full: string
 }
 
-// Import images and videos
-import previewImage1 from '@/assets/images/ClientsView/clients-media/preview_images/client_image_1_small.jpg'
-import previewImage2 from '@/assets/images/ClientsView/clients-media/preview_images/client_image_2_small.jpg'
-import previewImage3 from '@/assets/images/ClientsView/clients-media/preview_images/client_image_3_small.jpg'
-import previewImage4 from '@/assets/images/ClientsView/clients-media/preview_images/client_image_4_small.jpg'
-import previewImage5 from '@/assets/images/ClientsView/clients-media/preview_images/client_image_5_small.jpg'
+import previewImage1 from '@/assets/media/ClientsView/clients-media/preview_images/client_image_1_small.jpg'
+import previewImage2 from '@/assets/media/ClientsView/clients-media/preview_images/client_image_2_small.jpg'
+import previewImage3 from '@/assets/media/ClientsView/clients-media/preview_images/client_image_3_small.jpg'
+import previewImage4 from '@/assets/media/ClientsView/clients-media/preview_images/client_image_4_small.jpg'
+import previewImage5 from '@/assets/media/ClientsView/clients-media/preview_images/client_image_5_small.jpg'
 
-import image1 from '@/assets/images/ClientsView/clients-media/images/client_image_1.jpg'
-import image2 from '@/assets/images/ClientsView/clients-media/images/client_image_2.jpg'
-import image3 from '@/assets/images/ClientsView/clients-media/images/client_image_3.jpg'
-import image4 from '@/assets/images/ClientsView/clients-media/images/client_image_4.jpg'
-import image5 from '@/assets/images/ClientsView/clients-media/images/client_image_5.jpg'
+import image1 from '@/assets/media/ClientsView/clients-media/images/client_image_1.jpg'
+import image2 from '@/assets/media/ClientsView/clients-media/images/client_image_2.jpg'
+import image3 from '@/assets/media/ClientsView/clients-media/images/client_image_3.jpg'
+import image4 from '@/assets/media/ClientsView/clients-media/images/client_image_4.jpg'
+import image5 from '@/assets/media/ClientsView/clients-media/images/client_image_5.jpg'
 
-import previewVideo1 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_1.jpg'
-import previewVideo2 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_2.jpg'
-import previewVideo3 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_3.jpg'
-import previewVideo4 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_4.jpg'
-import previewVideo5 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_5.jpg'
-import previewVideo6 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_6.jpg'
-import previewVideo7 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_7.jpg'
-import previewVideo8 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_8.jpg'
-import previewVideo9 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_9.jpg'
-import previewVideo10 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_10.jpg'
-import previewVideo11 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_11.jpg'
-import previewVideo12 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_12.jpg'
-import previewVideo13 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_13.jpg'
-import previewVideo14 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_14.jpg'
-import previewVideo15 from '@/assets/images/ClientsView/clients-media/preview_videos/preview_15.jpg'
+import previewVideo1 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_1.jpg'
+import previewVideo2 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_2.jpg'
+import previewVideo3 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_3.jpg'
+import previewVideo4 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_4.jpg'
+import previewVideo5 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_5.jpg'
+import previewVideo6 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_6.jpg'
+import previewVideo7 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_7.jpg'
+import previewVideo8 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_8.jpg'
+import previewVideo9 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_9.jpg'
+import previewVideo10 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_10.jpg'
+import previewVideo11 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_11.jpg'
+import previewVideo12 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_12.jpg'
+import previewVideo13 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_13.jpg'
+import previewVideo14 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_14.jpg'
+import previewVideo15 from '@/assets/media/ClientsView/clients-media/preview_videos/preview_15.jpg'
 
-import video1 from '@/assets/images/ClientsView/clients-media/videos/client_video_1.mov'
-import video2 from '@/assets/images/ClientsView/clients-media/videos/client_video_2.mov'
-import video3 from '@/assets/images/ClientsView/clients-media/videos/client_video_3.mov'
-import video4 from '@/assets/images/ClientsView/clients-media/videos/client_video_4.mov'
-import video5 from '@/assets/images/ClientsView/clients-media/videos/client_video_5.mov'
-import video6 from '@/assets/images/ClientsView/clients-media/videos/client_video_6.mov'
-import video7 from '@/assets/images/ClientsView/clients-media/videos/client_video_7.mov'
-import video8 from '@/assets/images/ClientsView/clients-media/videos/client_video_8.mov'
-import video9 from '@/assets/images/ClientsView/clients-media/videos/client_video_9.mov'
-import video10 from '@/assets/images/ClientsView/clients-media/videos/client_video_10.mov'
-import video11 from '@/assets/images/ClientsView/clients-media/videos/client_video_11.mov'
-import video12 from '@/assets/images/ClientsView/clients-media/videos/client_video_12.mov'
-import video13 from '@/assets/images/ClientsView/clients-media/videos/client_video_13.mov'
-import video14 from '@/assets/images/ClientsView/clients-media/videos/client_video_14.mov'
-import video15 from '@/assets/images/ClientsView/clients-media/videos/client_video_15.mov'
+import video1 from '@/assets/media/ClientsView/clients-media/videos/client_video_1.mp4'
+import video2 from '@/assets/media/ClientsView/clients-media/videos/client_video_2.mp4'
+import video3 from '@/assets/media/ClientsView/clients-media/videos/client_video_3.mp4'
+import video4 from '@/assets/media/ClientsView/clients-media/videos/client_video_4.mp4'
+import video5 from '@/assets/media/ClientsView/clients-media/videos/client_video_5.mp4'
+import video6 from '@/assets/media/ClientsView/clients-media/videos/client_video_6.mp4'
+import video7 from '@/assets/media/ClientsView/clients-media/videos/client_video_7.mp4'
+import video8 from '@/assets/media/ClientsView/clients-media/videos/client_video_8.mp4'
+import video9 from '@/assets/media/ClientsView/clients-media/videos/client_video_9.mp4'
+import video10 from '@/assets/media/ClientsView/clients-media/videos/client_video_10.mp4'
+import video11 from '@/assets/media/ClientsView/clients-media/videos/client_video_11.mp4'
+import video12 from '@/assets/media/ClientsView/clients-media/videos/client_video_12.mp4'
+import video13 from '@/assets/media/ClientsView/clients-media/videos/client_video_13.mp4'
+import video14 from '@/assets/media/ClientsView/clients-media/videos/client_video_14.mp4'
+import video15 from '@/assets/media/ClientsView/clients-media/videos/client_video_15.mp4'
 
-// const router = useRouter();
-
-// Define reactive variables with proper types.
 const mediaItems = ref<MediaItem[]>([])
 const selectedMediaIndex = ref<number | null>(null)
 const videoRef = ref<HTMLVideoElement | null>(null)
 
 onMounted(() => {
-  // Set document title
-  document.title = 'Обо мне'
+  document.title = 'Мои клиенты'
 
-  // Initialize media items
   mediaItems.value = [
     { id: 1, type: 'image', preview: previewImage1, full: image1 },
     { id: 2, type: 'image', preview: previewImage2, full: image2 },
@@ -205,6 +198,9 @@ const currentMedia = computed<MediaItem | null>(() =>
 .container {
   max-width: 1100px;
   margin: 0 auto;
+}
+.header-my-clients {
+  margin-left: 20px;
 }
 .media-grid {
   display: grid;
@@ -296,6 +292,20 @@ button {
   top: 10px;
 }
 /* MEDIA QUERIES */
+@media screen and (max-width: 434px) {
+  .media-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .navigate-button.left {
+    left: -35px;
+  }
+
+  .navigate-button.right {
+    right: -35px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .leftArrow {
     left: 20%;

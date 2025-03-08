@@ -1,29 +1,26 @@
 <template>
   <h1 id="label-sofia-danilova">София Данилова</h1>
 
-  <!-- MAIN SECTION -->
+  <!-- MAIN -->
   <main>
     <div class="wrapper-image-sonya">
-      <img id="image-sonya" src="@/assets/images/HomeView/sonya.png" alt="Sonya Image" />
+      <img id="image-sonya" src="@/assets/media/HomeView/sonya.png" alt="Sonya Image" />
     </div>
     <div class="services-contacts">
-      <!-- Services List -->
       <ul class="services-list">
-        <li>• Кератиновое выпрямление</li>
-        <li>• Ботокс для волос</li>
-        <li>• Нанопластика</li>
-        <li>• Многоступенчатое холодное восстановление</li>
-        <li>• Уход за натуральными и осветлёнными волосами</li>
-        <li>• Индивидуальный подбор составов</li>
+        <li>&#x2022; Кератиновое выпрямление</li>
+        <li>&#x2022; Ботокс для волос</li>
+        <li>&#x2022; Нанопластика</li>
+        <li>&#x2022; Многоступенчатое холодное восстановление</li>
+        <li>&#x2022; Уход за натуральными и осветлёнными волосами</li>
+        <li>&#x2022; Индивидуальный подбор составов</li>
       </ul>
 
-      <!-- Contact Information -->
       <div class="contact-info">
         <div class="phone">+7 960 087-20-86</div>
         <div class="address">г. Казань, ул. Кави Наджми 8, офис.&nbsp;23</div>
       </div>
 
-      <!-- Social Media Icons -->
       <div class="media-icons">
         <a href="https://www.instagram.com/sofiya__hair/" target="_blank" aria-label="Instagram">
           <img src="@/assets/icons/instagram_white.png" alt="Instagram" width="37" height="37" />
@@ -44,14 +41,14 @@
   <!-- CLIENT VISIT RESULTS -->
   <div class="experience-info">
     <div class="gray-rectangle">
-      <p>5 лет опыта работы</p>
+      <p>3 года опыта работы</p>
     </div>
     <div class="gray-rectangle">
       <p>более 300 клиентов</p>
     </div>
   </div>
 
-  <h1>Результаты посещения клиентов</h1>
+  <h1 class="header-clients-results">Результаты посещения клиентов</h1>
 
   <SwiperCarousel :items="carouselItems" />
 
@@ -61,14 +58,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
-import thumbnail1 from '@/assets/images/HomeView/clients/small/client_image_1_small.jpg'
-import thumbnail2 from '@/assets/images/HomeView/clients/small/client_image_2_small.jpg'
-import thumbnail3 from '@/assets/images/HomeView/clients/small/client_image_3_small.jpg'
-import thumbnail4 from '@/assets/images/HomeView/clients/small/client_image_4_small.jpg'
-import thumbnail5 from '@/assets/images/HomeView/clients/small/client_image_5_small.jpg'
-import thumbnail6 from '@/assets/images/HomeView/clients/small/client_image_6_small.jpg'
+import thumbnail1 from '@/assets/media/HomeView/clients/small/client_image_1_small.jpg'
+import thumbnail2 from '@/assets/media/HomeView/clients/small/client_image_2_small.jpg'
+import thumbnail3 from '@/assets/media/HomeView/clients/small/client_image_3_small.jpg'
+import thumbnail4 from '@/assets/media/HomeView/clients/small/client_image_4_small.jpg'
+import thumbnail5 from '@/assets/media/HomeView/clients/small/client_image_5_small.jpg'
+import thumbnail6 from '@/assets/media/HomeView/clients/small/client_image_6_small.jpg'
+import thumbnail7 from '@/assets/media/HomeView/clients/small/client_image_7_small.jpg'
+import thumbnail8 from '@/assets/media/HomeView/clients/small/client_image_8_small.jpg'
 
 import SwiperCarousel from '@/components/SwiperCarousel.vue'
 import ServicesDescription from '@/components/ServicesDescription.vue'
@@ -105,7 +104,21 @@ const carouselItems = ref([
     alt: 'After',
     caption: 'После',
   },
+  {
+    thumbnail: thumbnail7,
+    alt: 'Before',
+    caption: 'До',
+  },
+  {
+    thumbnail: thumbnail8,
+    alt: 'After',
+    caption: 'После',
+  },
 ])
+
+onMounted(() => {
+  document.title = 'София Данилова'
+})
 </script>
 
 <style scoped>
@@ -113,21 +126,19 @@ h1 {
   text-align: center;
 }
 
-/* =========== MAIN SECTION =========== */
-
 main {
   background-color: #1c1c1c;
   width: 100%;
-  height: 500px;
+  height: auto;
   color: #ffffff;
   display: flex;
   gap: 2rem;
   align-items: center;
   justify-content: center;
   font-size: 22px;
+  padding: 0 20px;
 }
 
-/*Sonya Image*/
 #image-sonya {
   height: 510px;
 }
@@ -140,8 +151,7 @@ main {
   color: white;
 }
 
-/*Services list*/
-ul {
+.services-list {
   padding: 0;
   list-style: none;
 }
@@ -151,7 +161,6 @@ ul {
   line-height: 1.3;
 }
 
-/*Media icons*/
 .media-icons {
   margin-top: 30px;
   display: flex;
@@ -165,7 +174,7 @@ ul {
   padding: 0;
 }
 
-/* =========== CLIENT VISIT RESULTS =========== */
+/* CLIENT VISIT RESULTS */
 
 .experience-info {
   display: flex;
@@ -173,6 +182,7 @@ ul {
   gap: 1rem;
   margin: 15px 0;
   font-size: 18px;
+  padding: 0 15px;
 }
 
 .experience-info .gray-rectangle {
@@ -181,20 +191,44 @@ ul {
   text-align: center;
 }
 
+.header-clients-results {
+  margin: 10px 0;
+}
 
-/* ========================================== */
+@media (max-width: 1300px) {
+  .wrapper-before-after {
+    gap: 10px 0;
+  }
+}
 
-/* QUERIES */
+@media (max-width: 770px) {
+  main {
+    height: 550px;
+  }
+}
 
-@media (max-width: 680px) {
+@media (max-width: 684px) {
   #image-sonya {
     display: none;
   }
 
+  .header-clients-results {
+    line-height: 1.2;
+  }
+
   main {
-    height: 360px;
     font-size: 20px;
     gap: 0;
+    height: auto;
+    padding: 20px;
+  }
+
+  main ul {
+    line-height: 1.2;
+  }
+
+  .wrapper-image-sonya {
+    height: auto;
   }
 
   .gray-rectangle .gray-rectangle p {
@@ -203,6 +237,7 @@ ul {
 
   .services-contacts .phone,
   .services-contacts .address {
+    text-align: center;
     font-size: 18px;
   }
 
@@ -211,11 +246,20 @@ ul {
     justify-content: space-between;
     margin: 25px auto 0;
   }
-}
 
-@media (max-width: 1300px) {
-  .wrapper-before-after {
-    gap: 10px 0;
+  .experience-info {
+    line-height: 1.2;
+  }
+
+  .services-list {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  @media (max-width: 374px) {
+    .services-list {
+      max-width: 300px;
+    }
   }
 }
 </style>
