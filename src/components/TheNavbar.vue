@@ -9,8 +9,10 @@ import { RouterLink } from 'vue-router'
         <RouterLink class="router-link link-main-page" to="/">Главная&nbsp;страница</RouterLink>
         <RouterLink class="router-link link-about" to="/about">Обо&nbsp;мне</RouterLink>
         <RouterLink class="router-link" to="/prices">Цены</RouterLink>
-        <RouterLink class="router-link" to="/clients">Клиенты</RouterLink>
-        <RouterLink class="router-link" to="/learning">Обучение</RouterLink>
+        <div class="two-links-wrapper">
+          <RouterLink class="router-link" to="/clients">Клиенты</RouterLink>
+          <RouterLink class="router-link" to="/learning">Обучение</RouterLink>
+        </div>
       </nav>
     </div>
   </header>
